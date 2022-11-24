@@ -1,0 +1,690 @@
+{
+    "types": [{
+            "id": 1,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 3
+        },{
+            "id": 2,
+            "kind": "INT",
+            "name": "int",
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "SIGNED"
+        },{
+            "id": 3,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 2,
+            "index_type_id": 4,
+            "nr_elems": 27
+        },{
+            "id": 4,
+            "kind": "INT",
+            "name": "__ARRAY_SIZE_TYPE__",
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "(none)"
+        },{
+            "id": 5,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 6
+        },{
+            "id": 6,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 2,
+            "index_type_id": 4,
+            "nr_elems": 16777216
+        },{
+            "id": 7,
+            "kind": "STRUCT",
+            "name": "(anon)",
+            "size": 16,
+            "vlen": 2,
+            "members": [{
+                    "name": "type",
+                    "type_id": 1,
+                    "bits_offset": 0
+                },{
+                    "name": "max_entries",
+                    "type_id": 5,
+                    "bits_offset": 64
+                }
+            ]
+        },{
+            "id": 8,
+            "kind": "VAR",
+            "name": "direct_flows",
+            "type_id": 7,
+            "linkage": "global"
+        },{
+            "id": 9,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 10
+        },{
+            "id": 10,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 2,
+            "index_type_id": 4,
+            "nr_elems": 5
+        },{
+            "id": 11,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 12
+        },{
+            "id": 12,
+            "kind": "TYPEDEF",
+            "name": "flow_id",
+            "type_id": 13
+        },{
+            "id": 13,
+            "kind": "STRUCT",
+            "name": "flow_id_t",
+            "size": 56,
+            "vlen": 10,
+            "members": [{
+                    "name": "eth_protocol",
+                    "type_id": 14,
+                    "bits_offset": 0
+                },{
+                    "name": "direction",
+                    "type_id": 17,
+                    "bits_offset": 16
+                },{
+                    "name": "src_mac",
+                    "type_id": 20,
+                    "bits_offset": 24
+                },{
+                    "name": "dst_mac",
+                    "type_id": 20,
+                    "bits_offset": 72
+                },{
+                    "name": "src_ip",
+                    "type_id": 21,
+                    "bits_offset": 120
+                },{
+                    "name": "dst_ip",
+                    "type_id": 21,
+                    "bits_offset": 248
+                },{
+                    "name": "src_port",
+                    "type_id": 14,
+                    "bits_offset": 376
+                },{
+                    "name": "dst_port",
+                    "type_id": 14,
+                    "bits_offset": 392
+                },{
+                    "name": "transport_protocol",
+                    "type_id": 17,
+                    "bits_offset": 408
+                },{
+                    "name": "if_index",
+                    "type_id": 30,
+                    "bits_offset": 416
+                }
+            ]
+        },{
+            "id": 14,
+            "kind": "TYPEDEF",
+            "name": "u16",
+            "type_id": 15
+        },{
+            "id": 15,
+            "kind": "TYPEDEF",
+            "name": "__u16",
+            "type_id": 16
+        },{
+            "id": 16,
+            "kind": "INT",
+            "name": "unsigned short",
+            "size": 2,
+            "bits_offset": 0,
+            "nr_bits": 16,
+            "encoding": "(none)"
+        },{
+            "id": 17,
+            "kind": "TYPEDEF",
+            "name": "u8",
+            "type_id": 18
+        },{
+            "id": 18,
+            "kind": "TYPEDEF",
+            "name": "__u8",
+            "type_id": 19
+        },{
+            "id": 19,
+            "kind": "INT",
+            "name": "unsigned char",
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "(none)"
+        },{
+            "id": 20,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 17,
+            "index_type_id": 4,
+            "nr_elems": 6
+        },{
+            "id": 21,
+            "kind": "STRUCT",
+            "name": "in6_addr",
+            "size": 16,
+            "vlen": 1,
+            "members": [{
+                    "name": "in6_u",
+                    "type_id": 22,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 22,
+            "kind": "UNION",
+            "name": "(anon)",
+            "size": 16,
+            "vlen": 3,
+            "members": [{
+                    "name": "u6_addr8",
+                    "type_id": 23,
+                    "bits_offset": 0
+                },{
+                    "name": "u6_addr16",
+                    "type_id": 25,
+                    "bits_offset": 0
+                },{
+                    "name": "u6_addr32",
+                    "type_id": 29,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 23,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 18,
+            "index_type_id": 4,
+            "nr_elems": 16
+        },{
+            "id": 24,
+            "kind": "TYPEDEF",
+            "name": "__be16",
+            "type_id": 15
+        },{
+            "id": 25,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 24,
+            "index_type_id": 4,
+            "nr_elems": 8
+        },{
+            "id": 26,
+            "kind": "TYPEDEF",
+            "name": "__be32",
+            "type_id": 27
+        },{
+            "id": 27,
+            "kind": "TYPEDEF",
+            "name": "__u32",
+            "type_id": 28
+        },{
+            "id": 28,
+            "kind": "INT",
+            "name": "unsigned int",
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "(none)"
+        },{
+            "id": 29,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 26,
+            "index_type_id": 4,
+            "nr_elems": 4
+        },{
+            "id": 30,
+            "kind": "TYPEDEF",
+            "name": "u32",
+            "type_id": 27
+        },{
+            "id": 31,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 32
+        },{
+            "id": 32,
+            "kind": "TYPEDEF",
+            "name": "flow_metrics",
+            "type_id": 33
+        },{
+            "id": 33,
+            "kind": "STRUCT",
+            "name": "flow_metrics_t",
+            "size": 28,
+            "vlen": 4,
+            "members": [{
+                    "name": "packets",
+                    "type_id": 30,
+                    "bits_offset": 0
+                },{
+                    "name": "bytes",
+                    "type_id": 34,
+                    "bits_offset": 32
+                },{
+                    "name": "start_mono_time_ts",
+                    "type_id": 34,
+                    "bits_offset": 96
+                },{
+                    "name": "end_mono_time_ts",
+                    "type_id": 34,
+                    "bits_offset": 160
+                }
+            ]
+        },{
+            "id": 34,
+            "kind": "TYPEDEF",
+            "name": "u64",
+            "type_id": 35
+        },{
+            "id": 35,
+            "kind": "TYPEDEF",
+            "name": "__u64",
+            "type_id": 36
+        },{
+            "id": 36,
+            "kind": "INT",
+            "name": "unsigned long long",
+            "size": 8,
+            "bits_offset": 0,
+            "nr_bits": 64,
+            "encoding": "(none)"
+        },{
+            "id": 37,
+            "kind": "STRUCT",
+            "name": "(anon)",
+            "size": 24,
+            "vlen": 3,
+            "members": [{
+                    "name": "type",
+                    "type_id": 9,
+                    "bits_offset": 0
+                },{
+                    "name": "key",
+                    "type_id": 11,
+                    "bits_offset": 64
+                },{
+                    "name": "value",
+                    "type_id": 31,
+                    "bits_offset": 128
+                }
+            ]
+        },{
+            "id": 38,
+            "kind": "VAR",
+            "name": "aggregated_flows",
+            "type_id": 37,
+            "linkage": "global"
+        },{
+            "id": 39,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 40
+        },{
+            "id": 40,
+            "kind": "STRUCT",
+            "name": "__sk_buff",
+            "size": 184,
+            "vlen": 32,
+            "members": [{
+                    "name": "len",
+                    "type_id": 27,
+                    "bits_offset": 0
+                },{
+                    "name": "pkt_type",
+                    "type_id": 27,
+                    "bits_offset": 32
+                },{
+                    "name": "mark",
+                    "type_id": 27,
+                    "bits_offset": 64
+                },{
+                    "name": "queue_mapping",
+                    "type_id": 27,
+                    "bits_offset": 96
+                },{
+                    "name": "protocol",
+                    "type_id": 27,
+                    "bits_offset": 128
+                },{
+                    "name": "vlan_present",
+                    "type_id": 27,
+                    "bits_offset": 160
+                },{
+                    "name": "vlan_tci",
+                    "type_id": 27,
+                    "bits_offset": 192
+                },{
+                    "name": "vlan_proto",
+                    "type_id": 27,
+                    "bits_offset": 224
+                },{
+                    "name": "priority",
+                    "type_id": 27,
+                    "bits_offset": 256
+                },{
+                    "name": "ingress_ifindex",
+                    "type_id": 27,
+                    "bits_offset": 288
+                },{
+                    "name": "ifindex",
+                    "type_id": 27,
+                    "bits_offset": 320
+                },{
+                    "name": "tc_index",
+                    "type_id": 27,
+                    "bits_offset": 352
+                },{
+                    "name": "cb",
+                    "type_id": 41,
+                    "bits_offset": 384
+                },{
+                    "name": "hash",
+                    "type_id": 27,
+                    "bits_offset": 544
+                },{
+                    "name": "tc_classid",
+                    "type_id": 27,
+                    "bits_offset": 576
+                },{
+                    "name": "data",
+                    "type_id": 27,
+                    "bits_offset": 608
+                },{
+                    "name": "data_end",
+                    "type_id": 27,
+                    "bits_offset": 640
+                },{
+                    "name": "napi_id",
+                    "type_id": 27,
+                    "bits_offset": 672
+                },{
+                    "name": "family",
+                    "type_id": 27,
+                    "bits_offset": 704
+                },{
+                    "name": "remote_ip4",
+                    "type_id": 27,
+                    "bits_offset": 736
+                },{
+                    "name": "local_ip4",
+                    "type_id": 27,
+                    "bits_offset": 768
+                },{
+                    "name": "remote_ip6",
+                    "type_id": 42,
+                    "bits_offset": 800
+                },{
+                    "name": "local_ip6",
+                    "type_id": 42,
+                    "bits_offset": 928
+                },{
+                    "name": "remote_port",
+                    "type_id": 27,
+                    "bits_offset": 1056
+                },{
+                    "name": "local_port",
+                    "type_id": 27,
+                    "bits_offset": 1088
+                },{
+                    "name": "data_meta",
+                    "type_id": 27,
+                    "bits_offset": 1120
+                },{
+                    "name": "(anon)",
+                    "type_id": 43,
+                    "bits_offset": 1152
+                },{
+                    "name": "tstamp",
+                    "type_id": 35,
+                    "bits_offset": 1216
+                },{
+                    "name": "wire_len",
+                    "type_id": 27,
+                    "bits_offset": 1280
+                },{
+                    "name": "gso_segs",
+                    "type_id": 27,
+                    "bits_offset": 1312
+                },{
+                    "name": "(anon)",
+                    "type_id": 45,
+                    "bits_offset": 1344
+                },{
+                    "name": "gso_size",
+                    "type_id": 27,
+                    "bits_offset": 1408
+                }
+            ]
+        },{
+            "id": 41,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 27,
+            "index_type_id": 4,
+            "nr_elems": 5
+        },{
+            "id": 42,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 27,
+            "index_type_id": 4,
+            "nr_elems": 4
+        },{
+            "id": 43,
+            "kind": "UNION",
+            "name": "(anon)",
+            "size": 8,
+            "vlen": 1,
+            "members": [{
+                    "name": "flow_keys",
+                    "type_id": 44,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 44,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 65
+        },{
+            "id": 45,
+            "kind": "UNION",
+            "name": "(anon)",
+            "size": 8,
+            "vlen": 1,
+            "members": [{
+                    "name": "sk",
+                    "type_id": 46,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 46,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 66
+        },{
+            "id": 47,
+            "kind": "FUNC_PROTO",
+            "name": "(anon)",
+            "ret_type_id": 2,
+            "vlen": 1,
+            "params": [{
+                    "name": "skb",
+                    "type_id": 39
+                }
+            ]
+        },{
+            "id": 48,
+            "kind": "FUNC",
+            "name": "ingress_flow_parse",
+            "type_id": 47,
+            "linkage": "global"
+        },{
+            "id": 49,
+            "kind": "FUNC_PROTO",
+            "name": "(anon)",
+            "ret_type_id": 2,
+            "vlen": 2,
+            "params": [{
+                    "name": "skb",
+                    "type_id": 39
+                },{
+                    "name": "direction",
+                    "type_id": 17
+                }
+            ]
+        },{
+            "id": 50,
+            "kind": "FUNC",
+            "name": "flow_monitor",
+            "type_id": 49,
+            "linkage": "static"
+        },{
+            "id": 51,
+            "kind": "FUNC_PROTO",
+            "name": "(anon)",
+            "ret_type_id": 2,
+            "vlen": 1,
+            "params": [{
+                    "name": "skb",
+                    "type_id": 39
+                }
+            ]
+        },{
+            "id": 52,
+            "kind": "FUNC",
+            "name": "egress_flow_parse",
+            "type_id": 51,
+            "linkage": "global"
+        },{
+            "id": 53,
+            "kind": "CONST",
+            "name": "(anon)",
+            "type_id": 54
+        },{
+            "id": 54,
+            "kind": "VOLATILE",
+            "name": "(anon)",
+            "type_id": 30
+        },{
+            "id": 55,
+            "kind": "VAR",
+            "name": "sampling",
+            "type_id": 53,
+            "linkage": "global"
+        },{
+            "id": 56,
+            "kind": "CONST",
+            "name": "(anon)",
+            "type_id": 17
+        },{
+            "id": 57,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 56,
+            "index_type_id": 4,
+            "nr_elems": 12
+        },{
+            "id": 58,
+            "kind": "VAR",
+            "name": "ip4in6",
+            "type_id": 57,
+            "linkage": "global"
+        },{
+            "id": 59,
+            "kind": "INT",
+            "name": "char",
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "SIGNED"
+        },{
+            "id": 60,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 59,
+            "index_type_id": 4,
+            "nr_elems": 4
+        },{
+            "id": 61,
+            "kind": "VAR",
+            "name": "_license",
+            "type_id": 60,
+            "linkage": "global"
+        },{
+            "id": 62,
+            "kind": "DATASEC",
+            "name": ".maps",
+            "size": 0,
+            "vlen": 2,
+            "vars": [{
+                    "type_id": 8,
+                    "offset": 0,
+                    "size": 16
+                },{
+                    "type_id": 38,
+                    "offset": 0,
+                    "size": 24
+                }
+            ]
+        },{
+            "id": 63,
+            "kind": "DATASEC",
+            "name": ".rodata",
+            "size": 0,
+            "vlen": 2,
+            "vars": [{
+                    "type_id": 55,
+                    "offset": 0,
+                    "size": 4
+                },{
+                    "type_id": 58,
+                    "offset": 0,
+                    "size": 12
+                }
+            ]
+        },{
+            "id": 64,
+            "kind": "DATASEC",
+            "name": "license",
+            "size": 0,
+            "vlen": 1,
+            "vars": [{
+                    "type_id": 61,
+                    "offset": 0,
+                    "size": 4
+                }
+            ]
+        },{
+            "id": 65,
+            "kind": "FWD",
+            "name": "bpf_flow_keys",
+            "fwd_kind": "struct"
+        },{
+            "id": 66,
+            "kind": "FWD",
+            "name": "bpf_sock",
+            "fwd_kind": "struct"
+        }
+    ]
+}

@@ -1,0 +1,718 @@
+{
+ "maps": [
+  {
+   "size": 16,
+   "name": "direct_flows"
+  },
+  {
+   "size": 24,
+   "name": "aggregated_flows",
+   "key": {
+    "name": "(anon)",
+    "kind": "PTR",
+    "type": {
+     "name": "flow_id",
+     "kind": "TYPEDEF",
+     "type": {
+      "name": "flow_id_t",
+      "kind": "STRUCT",
+      "members": [
+       {
+        "name": "eth_protocol",
+        "type": {
+         "name": "u16",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u16",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned short",
+           "kind": "INT",
+           "id": 16,
+           "size": 2,
+           "bits_offset": 0,
+           "nr_bits": 16,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "direction",
+        "type": {
+         "name": "u8",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u8",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned char",
+           "kind": "INT",
+           "id": 19,
+           "size": 1,
+           "bits_offset": 0,
+           "nr_bits": 8,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "src_mac",
+        "type": {
+         "name": "(anon)",
+         "kind": "ARRAY",
+         "type": {
+          "name": "u8",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "__u8",
+           "kind": "TYPEDEF",
+           "type": {
+            "name": "unsigned char",
+            "kind": "INT",
+            "id": 19,
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "(none)"
+           }
+          }
+         }
+        }
+       },
+       {
+        "name": "dst_mac",
+        "type": {
+         "name": "(anon)",
+         "kind": "ARRAY",
+         "type": {
+          "name": "u8",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "__u8",
+           "kind": "TYPEDEF",
+           "type": {
+            "name": "unsigned char",
+            "kind": "INT",
+            "id": 19,
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "(none)"
+           }
+          }
+         }
+        }
+       },
+       {
+        "name": "src_ip",
+        "type": {
+         "name": "in6_addr",
+         "kind": "STRUCT",
+         "members": [
+          {
+           "name": "in6_u",
+           "type": {
+            "name": "(anon)",
+            "kind": "UNION",
+            "members": [
+             {
+              "name": "u6_addr8",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__u8",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "unsigned char",
+                 "kind": "INT",
+                 "id": 19,
+                 "size": 1,
+                 "bits_offset": 0,
+                 "nr_bits": 8,
+                 "encoding": "(none)"
+                }
+               }
+              }
+             },
+             {
+              "name": "u6_addr16",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__be16",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "__u16",
+                 "kind": "TYPEDEF",
+                 "type": {
+                  "name": "unsigned short",
+                  "kind": "INT",
+                  "id": 16,
+                  "size": 2,
+                  "bits_offset": 0,
+                  "nr_bits": 16,
+                  "encoding": "(none)"
+                 }
+                }
+               }
+              }
+             },
+             {
+              "name": "u6_addr32",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__be32",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "__u32",
+                 "kind": "TYPEDEF",
+                 "type": {
+                  "name": "unsigned int",
+                  "kind": "INT",
+                  "id": 28,
+                  "size": 4,
+                  "bits_offset": 0,
+                  "nr_bits": 32,
+                  "encoding": "(none)"
+                 }
+                }
+               }
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+       },
+       {
+        "name": "dst_ip",
+        "type": {
+         "name": "in6_addr",
+         "kind": "STRUCT",
+         "members": [
+          {
+           "name": "in6_u",
+           "type": {
+            "name": "(anon)",
+            "kind": "UNION",
+            "members": [
+             {
+              "name": "u6_addr8",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__u8",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "unsigned char",
+                 "kind": "INT",
+                 "id": 19,
+                 "size": 1,
+                 "bits_offset": 0,
+                 "nr_bits": 8,
+                 "encoding": "(none)"
+                }
+               }
+              }
+             },
+             {
+              "name": "u6_addr16",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__be16",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "__u16",
+                 "kind": "TYPEDEF",
+                 "type": {
+                  "name": "unsigned short",
+                  "kind": "INT",
+                  "id": 16,
+                  "size": 2,
+                  "bits_offset": 0,
+                  "nr_bits": 16,
+                  "encoding": "(none)"
+                 }
+                }
+               }
+              }
+             },
+             {
+              "name": "u6_addr32",
+              "type": {
+               "name": "(anon)",
+               "kind": "ARRAY",
+               "type": {
+                "name": "__be32",
+                "kind": "TYPEDEF",
+                "type": {
+                 "name": "__u32",
+                 "kind": "TYPEDEF",
+                 "type": {
+                  "name": "unsigned int",
+                  "kind": "INT",
+                  "id": 28,
+                  "size": 4,
+                  "bits_offset": 0,
+                  "nr_bits": 32,
+                  "encoding": "(none)"
+                 }
+                }
+               }
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+       },
+       {
+        "name": "src_port",
+        "type": {
+         "name": "u16",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u16",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned short",
+           "kind": "INT",
+           "id": 16,
+           "size": 2,
+           "bits_offset": 0,
+           "nr_bits": 16,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "dst_port",
+        "type": {
+         "name": "u16",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u16",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned short",
+           "kind": "INT",
+           "id": 16,
+           "size": 2,
+           "bits_offset": 0,
+           "nr_bits": 16,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "transport_protocol",
+        "type": {
+         "name": "u8",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u8",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned char",
+           "kind": "INT",
+           "id": 19,
+           "size": 1,
+           "bits_offset": 0,
+           "nr_bits": 8,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "if_index",
+        "type": {
+         "name": "u32",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u32",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned int",
+           "kind": "INT",
+           "id": 28,
+           "size": 4,
+           "bits_offset": 0,
+           "nr_bits": 32,
+           "encoding": "(none)"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "flatten": {
+     "expectedType": "struct",
+     "variable_name": "flow_id_t",
+     "members": [
+      {
+       "variable_name": "eth_protocol",
+       "name": "unsigned short",
+       "kind": "INT",
+       "id": 16,
+       "size": 2,
+       "bits_offset": 0,
+       "nr_bits": 16,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "direction",
+       "name": "unsigned char",
+       "kind": "INT",
+       "id": 19,
+       "size": 1,
+       "bits_offset": 0,
+       "nr_bits": 8,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "(anon)",
+       "expectedType": "array",
+       "member": {
+        "name": "unsigned char",
+        "kind": "INT",
+        "id": 19,
+        "size": 1,
+        "bits_offset": 0,
+        "nr_bits": 8,
+        "encoding": "(none)",
+        "expectedType": "int"
+       }
+      },
+      {
+       "variable_name": "(anon)",
+       "expectedType": "array",
+       "member": {
+        "name": "unsigned char",
+        "kind": "INT",
+        "id": 19,
+        "size": 1,
+        "bits_offset": 0,
+        "nr_bits": 8,
+        "encoding": "(none)",
+        "expectedType": "int"
+       }
+      },
+      {
+       "variable_name": "in6_addr",
+       "expectedType": "struct",
+       "members": [
+        {
+         "variable_name": "(anon)",
+         "expectedType": "union",
+         "members": [
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned char",
+            "kind": "INT",
+            "id": 19,
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          },
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned short",
+            "kind": "INT",
+            "id": 16,
+            "size": 2,
+            "bits_offset": 0,
+            "nr_bits": 16,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          },
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned int",
+            "kind": "INT",
+            "id": 28,
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "variable_name": "in6_addr",
+       "expectedType": "struct",
+       "members": [
+        {
+         "variable_name": "(anon)",
+         "expectedType": "union",
+         "members": [
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned char",
+            "kind": "INT",
+            "id": 19,
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          },
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned short",
+            "kind": "INT",
+            "id": 16,
+            "size": 2,
+            "bits_offset": 0,
+            "nr_bits": 16,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          },
+          {
+           "variable_name": "(anon)",
+           "expectedType": "array",
+           "member": {
+            "name": "unsigned int",
+            "kind": "INT",
+            "id": 28,
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "(none)",
+            "expectedType": "int"
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "variable_name": "src_port",
+       "name": "unsigned short",
+       "kind": "INT",
+       "id": 16,
+       "size": 2,
+       "bits_offset": 0,
+       "nr_bits": 16,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "dst_port",
+       "name": "unsigned short",
+       "kind": "INT",
+       "id": 16,
+       "size": 2,
+       "bits_offset": 0,
+       "nr_bits": 16,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "transport_protocol",
+       "name": "unsigned char",
+       "kind": "INT",
+       "id": 19,
+       "size": 1,
+       "bits_offset": 0,
+       "nr_bits": 8,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "if_index",
+       "name": "unsigned int",
+       "kind": "INT",
+       "id": 28,
+       "size": 4,
+       "bits_offset": 0,
+       "nr_bits": 32,
+       "encoding": "(none)",
+       "expectedType": "int"
+      }
+     ]
+    }
+   },
+   "value": {
+    "name": "(anon)",
+    "kind": "PTR",
+    "type": {
+     "name": "flow_metrics",
+     "kind": "TYPEDEF",
+     "type": {
+      "name": "flow_metrics_t",
+      "kind": "STRUCT",
+      "members": [
+       {
+        "name": "packets",
+        "type": {
+         "name": "u32",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u32",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned int",
+           "kind": "INT",
+           "id": 28,
+           "size": 4,
+           "bits_offset": 0,
+           "nr_bits": 32,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "bytes",
+        "type": {
+         "name": "u64",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u64",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned long long",
+           "kind": "INT",
+           "id": 36,
+           "size": 8,
+           "bits_offset": 0,
+           "nr_bits": 64,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "start_mono_time_ts",
+        "type": {
+         "name": "u64",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u64",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned long long",
+           "kind": "INT",
+           "id": 36,
+           "size": 8,
+           "bits_offset": 0,
+           "nr_bits": 64,
+           "encoding": "(none)"
+          }
+         }
+        }
+       },
+       {
+        "name": "end_mono_time_ts",
+        "type": {
+         "name": "u64",
+         "kind": "TYPEDEF",
+         "type": {
+          "name": "__u64",
+          "kind": "TYPEDEF",
+          "type": {
+           "name": "unsigned long long",
+           "kind": "INT",
+           "id": 36,
+           "size": 8,
+           "bits_offset": 0,
+           "nr_bits": 64,
+           "encoding": "(none)"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "flatten": {
+     "expectedType": "struct",
+     "variable_name": "flow_metrics_t",
+     "members": [
+      {
+       "variable_name": "packets",
+       "name": "unsigned int",
+       "kind": "INT",
+       "id": 28,
+       "size": 4,
+       "bits_offset": 0,
+       "nr_bits": 32,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "bytes",
+       "name": "unsigned long long",
+       "kind": "INT",
+       "id": 36,
+       "size": 8,
+       "bits_offset": 0,
+       "nr_bits": 64,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "start_mono_time_ts",
+       "name": "unsigned long long",
+       "kind": "INT",
+       "id": 36,
+       "size": 8,
+       "bits_offset": 0,
+       "nr_bits": 64,
+       "encoding": "(none)",
+       "expectedType": "int"
+      },
+      {
+       "variable_name": "end_mono_time_ts",
+       "name": "unsigned long long",
+       "kind": "INT",
+       "id": 36,
+       "size": 8,
+       "bits_offset": 0,
+       "nr_bits": 64,
+       "encoding": "(none)",
+       "expectedType": "int"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

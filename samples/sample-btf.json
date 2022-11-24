@@ -1,0 +1,371 @@
+{
+    "types": [{
+            "id": 1,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 3
+        },{
+            "id": 2,
+            "kind": "INT",
+            "name": "int",
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "SIGNED"
+        },{
+            "id": 3,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 2,
+            "index_type_id": 4,
+            "nr_elems": 1
+        },{
+            "id": 4,
+            "kind": "INT",
+            "name": "__ARRAY_SIZE_TYPE__",
+            "size": 4,
+            "bits_offset": 0,
+            "nr_bits": 32,
+            "encoding": "(none)"
+        },{
+            "id": 5,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 6
+        },{
+            "id": 6,
+            "kind": "ARRAY",
+            "name": "(anon)",
+            "type_id": 2,
+            "index_type_id": 4,
+            "nr_elems": 128
+        },{
+            "id": 7,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 8
+        },{
+            "id": 8,
+            "kind": "TYPEDEF",
+            "name": "map_key_t",
+            "type_id": 9
+        },{
+            "id": 9,
+            "kind": "STRUCT",
+            "name": "map_key",
+            "size": 4,
+            "vlen": 1,
+            "members": [{
+                    "name": "key",
+                    "type_id": 2,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 10,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 11
+        },{
+            "id": 11,
+            "kind": "TYPEDEF",
+            "name": "map_value_t",
+            "type_id": 12
+        },{
+            "id": 12,
+            "kind": "STRUCT",
+            "name": "map_value",
+            "size": 4,
+            "vlen": 1,
+            "members": [{
+                    "name": "value",
+                    "type_id": 2,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 13,
+            "kind": "STRUCT",
+            "name": "(anon)",
+            "size": 32,
+            "vlen": 4,
+            "members": [{
+                    "name": "type",
+                    "type_id": 1,
+                    "bits_offset": 0
+                },{
+                    "name": "max_entries",
+                    "type_id": 5,
+                    "bits_offset": 64
+                },{
+                    "name": "key",
+                    "type_id": 7,
+                    "bits_offset": 128
+                },{
+                    "name": "value",
+                    "type_id": 10,
+                    "bits_offset": 192
+                }
+            ]
+        },{
+            "id": 14,
+            "kind": "VAR",
+            "name": "my_map",
+            "type_id": 13,
+            "linkage": "global"
+        },{
+            "id": 15,
+            "kind": "PTR",
+            "name": "(anon)",
+            "type_id": 16
+        },{
+            "id": 16,
+            "kind": "STRUCT",
+            "name": "pt_regs",
+            "size": 168,
+            "vlen": 21,
+            "members": [{
+                    "name": "r15",
+                    "type_id": 17,
+                    "bits_offset": 0
+                },{
+                    "name": "r14",
+                    "type_id": 17,
+                    "bits_offset": 64
+                },{
+                    "name": "r13",
+                    "type_id": 17,
+                    "bits_offset": 128
+                },{
+                    "name": "r12",
+                    "type_id": 17,
+                    "bits_offset": 192
+                },{
+                    "name": "rbp",
+                    "type_id": 17,
+                    "bits_offset": 256
+                },{
+                    "name": "rbx",
+                    "type_id": 17,
+                    "bits_offset": 320
+                },{
+                    "name": "r11",
+                    "type_id": 17,
+                    "bits_offset": 384
+                },{
+                    "name": "r10",
+                    "type_id": 17,
+                    "bits_offset": 448
+                },{
+                    "name": "r9",
+                    "type_id": 17,
+                    "bits_offset": 512
+                },{
+                    "name": "r8",
+                    "type_id": 17,
+                    "bits_offset": 576
+                },{
+                    "name": "rax",
+                    "type_id": 17,
+                    "bits_offset": 640
+                },{
+                    "name": "rcx",
+                    "type_id": 17,
+                    "bits_offset": 704
+                },{
+                    "name": "rdx",
+                    "type_id": 17,
+                    "bits_offset": 768
+                },{
+                    "name": "rsi",
+                    "type_id": 17,
+                    "bits_offset": 832
+                },{
+                    "name": "rdi",
+                    "type_id": 17,
+                    "bits_offset": 896
+                },{
+                    "name": "orig_rax",
+                    "type_id": 17,
+                    "bits_offset": 960
+                },{
+                    "name": "rip",
+                    "type_id": 17,
+                    "bits_offset": 1024
+                },{
+                    "name": "cs",
+                    "type_id": 17,
+                    "bits_offset": 1088
+                },{
+                    "name": "eflags",
+                    "type_id": 17,
+                    "bits_offset": 1152
+                },{
+                    "name": "rsp",
+                    "type_id": 17,
+                    "bits_offset": 1216
+                },{
+                    "name": "ss",
+                    "type_id": 17,
+                    "bits_offset": 1280
+                }
+            ]
+        },{
+            "id": 17,
+            "kind": "INT",
+            "name": "unsigned long",
+            "size": 8,
+            "bits_offset": 0,
+            "nr_bits": 64,
+            "encoding": "(none)"
+        },{
+            "id": 18,
+            "kind": "FUNC_PROTO",
+            "name": "(anon)",
+            "ret_type_id": 2,
+            "vlen": 1,
+            "params": [{
+                    "name": "ctx",
+                    "type_id": 15
+                }
+            ]
+        },{
+            "id": 19,
+            "kind": "FUNC",
+            "name": "handle_sys_enter",
+            "type_id": 18,
+            "linkage": "global"
+        },{
+            "id": 20,
+            "kind": "FUNC_PROTO",
+            "name": "(anon)",
+            "ret_type_id": 2,
+            "vlen": 1,
+            "params": [{
+                    "name": "ctx",
+                    "type_id": 15
+                }
+            ]
+        },{
+            "id": 21,
+            "kind": "FUNC",
+            "name": "handle_sys_exit",
+            "type_id": 20,
+            "linkage": "global"
+        },{
+            "id": 22,
+            "kind": "CONST",
+            "name": "(anon)",
+            "type_id": 23
+        },{
+            "id": 23,
+            "kind": "VOLATILE",
+            "name": "(anon)",
+            "type_id": 2
+        },{
+            "id": 24,
+            "kind": "VAR",
+            "name": "param1",
+            "type_id": 22,
+            "linkage": "global"
+        },{
+            "id": 25,
+            "kind": "INT",
+            "name": "_Bool",
+            "size": 1,
+            "bits_offset": 0,
+            "nr_bits": 8,
+            "encoding": "BOOL"
+        },{
+            "id": 26,
+            "kind": "VAR",
+            "name": "global_flag",
+            "type_id": 25,
+            "linkage": "global"
+        },{
+            "id": 27,
+            "kind": "STRUCT",
+            "name": "(anon)",
+            "size": 4,
+            "vlen": 1,
+            "members": [{
+                    "name": "x",
+                    "type_id": 2,
+                    "bits_offset": 0
+                }
+            ]
+        },{
+            "id": 28,
+            "kind": "VAR",
+            "name": "data",
+            "type_id": 27,
+            "linkage": "global"
+        },{
+            "id": 29,
+            "kind": "INT",
+            "name": "long",
+            "size": 8,
+            "bits_offset": 0,
+            "nr_bits": 64,
+            "encoding": "SIGNED"
+        },{
+            "id": 30,
+            "kind": "VAR",
+            "name": "handle_sys_enter.my_static_var",
+            "type_id": 29,
+            "linkage": "static"
+        },{
+            "id": 31,
+            "kind": "DATASEC",
+            "name": ".bss",
+            "size": 0,
+            "vlen": 2,
+            "vars": [{
+                    "type_id": 28,
+                    "offset": 0,
+                    "size": 4
+                },{
+                    "type_id": 30,
+                    "offset": 8,
+                    "size": 8
+                }
+            ]
+        },{
+            "id": 32,
+            "kind": "DATASEC",
+            "name": ".data",
+            "size": 0,
+            "vlen": 1,
+            "vars": [{
+                    "type_id": 26,
+                    "offset": 0,
+                    "size": 1
+                }
+            ]
+        },{
+            "id": 33,
+            "kind": "DATASEC",
+            "name": ".maps",
+            "size": 0,
+            "vlen": 1,
+            "vars": [{
+                    "type_id": 14,
+                    "offset": 0,
+                    "size": 32
+                }
+            ]
+        },{
+            "id": 34,
+            "kind": "DATASEC",
+            "name": ".rodata",
+            "size": 0,
+            "vlen": 1,
+            "vars": [{
+                    "type_id": 24,
+                    "offset": 0,
+                    "size": 4
+                }
+            ]
+        }
+    ]
+}

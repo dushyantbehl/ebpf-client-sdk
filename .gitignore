@@ -1,4 +1,6 @@
 *.json
 *.tgz
+testcases/
+*__pycache__
 .DS_Store
 .vscode/*
