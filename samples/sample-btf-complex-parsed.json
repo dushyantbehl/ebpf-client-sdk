@@ -361,107 +361,98 @@
      }
     },
     "flatten": {
-     "expectedType": "struct",
      "variable_name": "flow_id_t",
-     "members": [
+     "kind": "STRUCT",
+     "member": [
       {
        "variable_name": "eth_protocol",
-       "name": "unsigned short",
-       "kind": "INT",
-       "id": 16,
-       "size": 2,
-       "bits_offset": 0,
-       "nr_bits": 16,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned short",
+        "size": 2,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "direction",
-       "name": "unsigned char",
-       "kind": "INT",
-       "id": 19,
-       "size": 1,
-       "bits_offset": 0,
-       "nr_bits": 8,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned char",
+        "size": 1,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "(anon)",
-       "expectedType": "array",
+       "kind": "ARRAY",
+       "input": [],
        "member": {
-        "name": "unsigned char",
-        "kind": "INT",
-        "id": 19,
-        "size": 1,
-        "bits_offset": 0,
-        "nr_bits": 8,
-        "encoding": "(none)",
-        "expectedType": "int"
+        "type": {
+         "name": "unsigned char",
+         "size": 1,
+         "kind": "INT"
+        },
+        "input": null
        }
       },
       {
        "variable_name": "(anon)",
-       "expectedType": "array",
+       "kind": "ARRAY",
+       "input": [],
        "member": {
-        "name": "unsigned char",
-        "kind": "INT",
-        "id": 19,
-        "size": 1,
-        "bits_offset": 0,
-        "nr_bits": 8,
-        "encoding": "(none)",
-        "expectedType": "int"
+        "type": {
+         "name": "unsigned char",
+         "size": 1,
+         "kind": "INT"
+        },
+        "input": null
        }
       },
       {
        "variable_name": "in6_addr",
-       "expectedType": "struct",
-       "members": [
+       "kind": "STRUCT",
+       "member": [
         {
          "variable_name": "(anon)",
-         "expectedType": "union",
-         "members": [
+         "kind": "UNION",
+         "member": [
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned char",
-            "kind": "INT",
-            "id": 19,
-            "size": 1,
-            "bits_offset": 0,
-            "nr_bits": 8,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned char",
+             "size": 1,
+             "kind": "INT"
+            },
+            "input": null
            }
           },
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned short",
-            "kind": "INT",
-            "id": 16,
-            "size": 2,
-            "bits_offset": 0,
-            "nr_bits": 16,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned short",
+             "size": 2,
+             "kind": "INT"
+            },
+            "input": null
            }
           },
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned int",
-            "kind": "INT",
-            "id": 28,
-            "size": 4,
-            "bits_offset": 0,
-            "nr_bits": 32,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned int",
+             "size": 4,
+             "kind": "INT"
+            },
+            "input": null
            }
           }
          ]
@@ -470,52 +461,49 @@
       },
       {
        "variable_name": "in6_addr",
-       "expectedType": "struct",
-       "members": [
+       "kind": "STRUCT",
+       "member": [
         {
          "variable_name": "(anon)",
-         "expectedType": "union",
-         "members": [
+         "kind": "UNION",
+         "member": [
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned char",
-            "kind": "INT",
-            "id": 19,
-            "size": 1,
-            "bits_offset": 0,
-            "nr_bits": 8,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned char",
+             "size": 1,
+             "kind": "INT"
+            },
+            "input": null
            }
           },
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned short",
-            "kind": "INT",
-            "id": 16,
-            "size": 2,
-            "bits_offset": 0,
-            "nr_bits": 16,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned short",
+             "size": 2,
+             "kind": "INT"
+            },
+            "input": null
            }
           },
           {
            "variable_name": "(anon)",
-           "expectedType": "array",
+           "kind": "ARRAY",
+           "input": [],
            "member": {
-            "name": "unsigned int",
-            "kind": "INT",
-            "id": 28,
-            "size": 4,
-            "bits_offset": 0,
-            "nr_bits": 32,
-            "encoding": "(none)",
-            "expectedType": "int"
+            "type": {
+             "name": "unsigned int",
+             "size": 4,
+             "kind": "INT"
+            },
+            "input": null
            }
           }
          ]
@@ -524,47 +512,39 @@
       },
       {
        "variable_name": "src_port",
-       "name": "unsigned short",
-       "kind": "INT",
-       "id": 16,
-       "size": 2,
-       "bits_offset": 0,
-       "nr_bits": 16,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned short",
+        "size": 2,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "dst_port",
-       "name": "unsigned short",
-       "kind": "INT",
-       "id": 16,
-       "size": 2,
-       "bits_offset": 0,
-       "nr_bits": 16,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned short",
+        "size": 2,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "transport_protocol",
-       "name": "unsigned char",
-       "kind": "INT",
-       "id": 19,
-       "size": 1,
-       "bits_offset": 0,
-       "nr_bits": 8,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned char",
+        "size": 1,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "if_index",
-       "name": "unsigned int",
-       "kind": "INT",
-       "id": 28,
-       "size": 4,
-       "bits_offset": 0,
-       "nr_bits": 32,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned int",
+        "size": 4,
+        "kind": "INT"
+       },
+       "input": null
       }
      ]
     }
@@ -663,52 +643,44 @@
      }
     },
     "flatten": {
-     "expectedType": "struct",
      "variable_name": "flow_metrics_t",
-     "members": [
+     "kind": "STRUCT",
+     "member": [
       {
        "variable_name": "packets",
-       "name": "unsigned int",
-       "kind": "INT",
-       "id": 28,
-       "size": 4,
-       "bits_offset": 0,
-       "nr_bits": 32,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned int",
+        "size": 4,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "bytes",
-       "name": "unsigned long long",
-       "kind": "INT",
-       "id": 36,
-       "size": 8,
-       "bits_offset": 0,
-       "nr_bits": 64,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned long long",
+        "size": 8,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "start_mono_time_ts",
-       "name": "unsigned long long",
-       "kind": "INT",
-       "id": 36,
-       "size": 8,
-       "bits_offset": 0,
-       "nr_bits": 64,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned long long",
+        "size": 8,
+        "kind": "INT"
+       },
+       "input": null
       },
       {
        "variable_name": "end_mono_time_ts",
-       "name": "unsigned long long",
-       "kind": "INT",
-       "id": 36,
-       "size": 8,
-       "bits_offset": 0,
-       "nr_bits": 64,
-       "encoding": "(none)",
-       "expectedType": "int"
+       "type": {
+        "name": "unsigned long long",
+        "size": 8,
+        "kind": "INT"
+       },
+       "input": null
       }
      ]
     }

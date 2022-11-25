@@ -49,7 +49,7 @@ def parseRecursiveType(typeID):
     return type_obj
 
 def parseMapType(typeID, map):
-    print("Parsing typeid "+str(typeID))
+    #print("Parsing typeid "+str(typeID))
 
     # first we check the map name from map type.
     base_type = typeIDToTypeTable[typeID]
@@ -57,7 +57,7 @@ def parseMapType(typeID, map):
     maptypeid = base_type['type_id']
 
     map['name'] = name
-    print("Map name is "+name+" typeid is "+str(maptypeid))
+    #print("Map name is "+name+" typeid is "+str(maptypeid))
 
     # Now its key & value sub types.
     maptype = typeIDToTypeTable[maptypeid]
@@ -65,7 +65,7 @@ def parseMapType(typeID, map):
         raise Exception("Map type kind %s is not a STRUCT" % maptype['kind'])
     members = maptype['members']
 
-    print("map members are - "+json.dumps(members, indent=1))
+    #print("map members are - "+json.dumps(members, indent=1))
 
     # parse the sub types of this map in a depth first search fashion
     # collect the sub type info
@@ -115,8 +115,6 @@ def main(args):
         # This array contains differnet map variables in btf
         map_vars = maps_datasec['vars']
 
-        print(map_vars)
-
         maps = []
         for var in map_vars:
             map = {}
@@ -129,8 +127,8 @@ def main(args):
                 # Some maps don't even have any key/value
                 # Not sure what do we even do with them
                 continue
-            flatten_key = btf.handleMeta(map['key'])
-            flatten_value = btf.handleMeta(map['value'])
+            flatten_key = btf.flattenBTF(map['key'])
+            flatten_value = btf.flattenBTF(map['value'])
             map['key']['flatten'] = flatten_key
             map['value']['flatten'] = flatten_value
 
