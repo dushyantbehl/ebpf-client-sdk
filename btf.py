@@ -264,6 +264,9 @@ def convertStructType(struct_obj):
     except Exception as e:
         raise Exception(str(e))
 
+# The union conversion doesn't check max size of the union and hence the padding
+# needed for the union if one entry is smaller than the other one.
+# Need to fix this but will need API for btf size calculation before fixing this.
 def convertUnionType(union_obj):
     try:
         variable_name = union_obj['variable_name']

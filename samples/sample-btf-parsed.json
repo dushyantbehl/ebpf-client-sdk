@@ -1,1 +1,86 @@
-{"maps": [{"size": 32, "name": "my_map", "key": {"name": "(anon)", "kind": "PTR", "type": {"name": "map_key_t", "kind": "TYPEDEF", "type": {"name": "map_key", "kind": "STRUCT", "members": [{"name": "key", "type": {"name": "int", "kind": "INT", "id": 2, "size": 4, "bits_offset": 0, "nr_bits": 32, "encoding": "SIGNED"}}]}}, "flatten": {"variable_name": "map_key", "kind": "STRUCT", "member": [{"variable_name": "key", "type_name": "int", "size": 4, "kind": "INT", "input": null}]}}, "value": {"name": "(anon)", "kind": "PTR", "type": {"name": "map_value_t", "kind": "TYPEDEF", "type": {"name": "map_value", "kind": "STRUCT", "members": [{"name": "value", "type": {"name": "int", "kind": "INT", "id": 2, "size": 4, "bits_offset": 0, "nr_bits": 32, "encoding": "SIGNED"}}]}}, "flatten": {"variable_name": "map_value", "kind": "STRUCT", "member": [{"variable_name": "value", "type_name": "int", "size": 4, "kind": "INT", "input": null}]}}, "path": "/ye/le/path"}]}
+{
+ "maps": [
+  {
+   "size": 32,
+   "name": "my_map",
+   "key": {
+    "name": "(anon)",
+    "kind": "PTR",
+    "type": {
+     "name": "map_key_t",
+     "kind": "TYPEDEF",
+     "type": {
+      "name": "map_key",
+      "kind": "STRUCT",
+      "members": [
+       {
+        "name": "key",
+        "type": {
+         "name": "int",
+         "kind": "INT",
+         "id": 2,
+         "size": 4,
+         "bits_offset": 0,
+         "nr_bits": 32,
+         "encoding": "SIGNED"
+        }
+       }
+      ]
+     }
+    },
+    "flatten": {
+     "variable_name": "map_key",
+     "kind": "STRUCT",
+     "member": [
+      {
+       "variable_name": "key",
+       "type_name": "int",
+       "size": 4,
+       "kind": "INT",
+       "input": null
+      }
+     ]
+    }
+   },
+   "value": {
+    "name": "(anon)",
+    "kind": "PTR",
+    "type": {
+     "name": "map_value_t",
+     "kind": "TYPEDEF",
+     "type": {
+      "name": "map_value",
+      "kind": "STRUCT",
+      "members": [
+       {
+        "name": "value",
+        "type": {
+         "name": "int",
+         "kind": "INT",
+         "id": 2,
+         "size": 4,
+         "bits_offset": 0,
+         "nr_bits": 32,
+         "encoding": "SIGNED"
+        }
+       }
+      ]
+     }
+    },
+    "flatten": {
+     "variable_name": "map_value",
+     "kind": "STRUCT",
+     "member": [
+      {
+       "variable_name": "value",
+       "type_name": "int",
+       "size": 4,
+       "kind": "INT",
+       "input": null
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

@@ -7,6 +7,7 @@
 #
 # Author: Dushyant Behl <dushyantbehl@in.ibm.com>
 
+import os
 import json
 import copy
 import argparse
@@ -88,10 +89,29 @@ def enrichMapType(maps, bpf):
         raise Exception(str(e))
     return 
 
+def getBTFFromELF(elf):
+    tmp_btf_dump_file = "/tmp/bpf-client-sdk-raw-btf-dump.json"
+    bpftool_dump_cmd = 'bpftool btf dump file '+elf+' -p' + ' > '+tmp_btf_dump_file
+    log.info('Executing cmd: '+bpftool_dump_cmd)
+    exitcode = os.system(bpftool_dump_cmd)
+    if exitcode != 0:
+        raise Exception("Error "+str(exitcode)+" while running the btf extraction.")
+    return tmp_btf_dump_file
+
 def main(args):
     try:
+        # one of elf or btf should be set.
+        if args.elf != None:
+            log.info("Supplied bpf object, extracting raw btf")
+            btf_json_file = getBTFFromELF(args.elf)
+        elif args.btf != None:
+            log.info("Supplied raw btf, using as is")
+            btf_json_file = args.btf
+        else:
+            log.error('Either --elf or --btf should be supplied')
+
         #Check and open btf file.
-        with open(args.btf, 'r') as btf_file:
+        with open(btf_json_file, 'r') as btf_file:
             rawBTF = json.loads(btf_file.read())
 
         # types is an array of the types.
@@ -153,7 +173,8 @@ def main(args):
 
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser(description='BPF Map info parser')
-    argparser.add_argument('--btf', dest='btf', help="btf file (in json format)", required=True)
+    argparser.add_argument('--elf', dest='elf', help="bpf object file (elf format)", required=False)
+    argparser.add_argument('--btf', dest='btf', help="btf file (in json format)", required=False)
     argparser.add_argument('--parsed_btf', dest='parsed_btf', help="output to be generated...parsed btf file", required=False)
     argparser.add_argument('--bpf', dest='bpf', help="bpf object file to parse. bpf elf format.", required=False)
     args = argparser.parse_args()
