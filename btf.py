@@ -175,7 +175,7 @@ def getPackFormatForTypeName(name):
         return 'L'
     elif name == 'long long':
         return 'q'
-    elif name == 'unsigned long long':
+    elif name == 'unsigned long long' or name == 'long unsigned int':
         return 'Q'
     elif name == 'float':
         return 'f'
@@ -194,7 +194,10 @@ def convertBaseType(flatten_obj, type):
         input = flatten_obj['input']
         if input is None: # special case for unions
             return None
-        variable_name = flatten_obj['variable_name']
+        if 'variable_name' in flatten_obj:
+            variable_name = flatten_obj['variable_name']
+        else:
+            variable_name = "ANON"
         kind = flatten_obj['kind']
         size = flatten_obj['size']
         type_name = flatten_obj['type_name']
@@ -214,7 +217,10 @@ def convertBaseType(flatten_obj, type):
 
 def convertArrayType(array_obj):
     try:
-        variable_name = array_obj['variable_name']
+        if 'variable_name' in array_obj:
+            variable_name = array_obj['variable_name']
+        else:
+            variable_name = "ANON"
         # array has one member
         member = array_obj['member']
         # array input array
@@ -245,7 +251,10 @@ def convertArrayType(array_obj):
 
 def convertStructType(struct_obj):
     try:
-        variable_name = struct_obj['variable_name']
+        if 'variable_name' in struct_obj:
+            variable_name = struct_obj['variable_name']
+        else:
+            variable_name = "ANON"
         members = struct_obj['member']
         raw_members = []
         for member in members:
@@ -269,7 +278,10 @@ def convertStructType(struct_obj):
 # Need to fix this but will need API for btf size calculation before fixing this.
 def convertUnionType(union_obj):
     try:
-        variable_name = union_obj['variable_name']
+        if 'variable_name' in union_obj:
+            variable_name = union_obj['variable_name']
+        else:
+            variable_name = "ANON"
         members = union_obj['member']
         raw_union = None
         for member in members:

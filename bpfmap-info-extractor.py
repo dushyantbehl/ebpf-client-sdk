@@ -108,7 +108,9 @@ def main(args):
             log.info("Supplied raw btf, using as is")
             btf_json_file = args.btf
         else:
-            log.error('Either --elf or --btf should be supplied')
+            err_args = 'Either --elf or --btf should be supplied'
+            log.error(err_args)
+            raise Exception(err_args)
 
         #Check and open btf file.
         with open(btf_json_file, 'r') as btf_file:
