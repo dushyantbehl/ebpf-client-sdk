@@ -156,6 +156,9 @@ def flattenBTFDATASEC(btf):
 def flattenBTFDeclTag(btf):
     return flattenBTFNotImplemented(btf)
 
+##
+# TODO: Need more robust type to pack format conversion
+# Maybe based on size? if name contains unsigned then capital else small.
 def getPackFormatForTypeName(name):
     if name == 'char':
         return 'b'
