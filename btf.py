@@ -98,11 +98,12 @@ def flattenBTFPtr(btf):
 # array so that might be out of question for now
 def flattenBTFArray(btf):
     subType = btf['type']
-    variable_name = btf['name']
+    #FIXME: Array names are generally Anon and are found at root. Verify?
+    #variable_name = btf['name']
     member = flattenBTF(subType)
-    del member['input']
+    #del member['input']
     ret = {
-            'variable_name': variable_name,
+            #'variable_name': variable_name,
             'kind': btf['kind'],
             'input': [],
             'member': member
@@ -116,7 +117,9 @@ def flattenBTFStructOrUnion(btf):
     for member in members:
         m = {}
         m['variable_name'] = member['name']
-        m = m | flattenBTF(member['type'])
+        m_flatten = flattenBTF(member['type'])
+        m = {**m, **m_flatten}
+#        m = m | flattenBTF(member['type'])
         member_collection.append(m)
     ret = {
             'variable_name': variable_name,
@@ -156,9 +159,6 @@ def flattenBTFDATASEC(btf):
 def flattenBTFDeclTag(btf):
     return flattenBTFNotImplemented(btf)
 
-##
-# TODO: Need more robust type to pack format conversion
-# Maybe based on size? if name contains unsigned then capital else small.
 def getPackFormatForTypeName(name):
     if name == 'char':
         return 'b'
@@ -230,9 +230,9 @@ def convertArrayType(array_obj):
         input_array = array_obj['input']
 
         members = []
-        for input in input_array:
+        for i in input_array:
             m = copy.deepcopy(member)
-            m['input'] = input
+            m['input'] = i
             members.append(m)
 
         raw_members = []
@@ -247,9 +247,9 @@ def convertArrayType(array_obj):
                 raw_array = raw_member
             else:
                 raw_array += raw_member
-        log.info('Converted STRUCT '+variable_name+' to '+raw_array.hex())
         return raw_array
     except Exception as e:
+        print(str(e))
         raise Exception(str(e))
 
 def convertStructType(struct_obj):
@@ -288,11 +288,15 @@ def convertUnionType(union_obj):
         members = union_obj['member']
         raw_union = None
         for member in members:
-            raw_val = generateRawValue(member)
-            if raw_val is None:
+            try: 
+                raw_val = generateRawValue(member)
+                if raw_val is None:
+                    continue
+                else:
+                    raw_union = raw_val
+                    break
+            except:
                 continue
-            raw_union = raw_val
-            break
         if raw_union is None:
             raise Exception('No member of union '+variable_name+' is set')
         log.info('Converted UNION '+variable_name+' to '+raw_union.hex())
@@ -313,5 +317,7 @@ def generateRawValue(flatten_obj):
         return convertStructType(struct_obj=flatten_obj)
     elif kind == 'UNION':
         return convertUnionType(union_obj=flatten_obj)
+    elif kind == 'ARRAY':
+        return convertArrayType(array_obj=flatten_obj) 
     else:
         raise Exception('Unknown kind '+kind)

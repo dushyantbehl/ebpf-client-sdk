@@ -45,7 +45,8 @@ def parseRecursiveType(typeID):
     else:
         # no members and no type_id, this is a basic type so copy the definition.
         raw_type_deepcopy = copy.deepcopy(raw_type)
-        type_obj = type_obj | raw_type_deepcopy
+        type_obj = {**type_obj, **raw_type_deepcopy}
+#        type_obj = type_obj | raw_type_deepcopy
 
     return type_obj
 
