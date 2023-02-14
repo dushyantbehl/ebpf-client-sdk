@@ -141,7 +141,7 @@ def main(args):
         maps = []
         for var in map_vars:
             map = {}
-            map['size'] = var['size']
+            #map['size'] = var['size']
             parseMapType(var['type_id'], map)
             maps.append(map)
 

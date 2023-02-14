@@ -71,7 +71,8 @@ def flattenBTFBaseObject(btf):
         'type_name': btf['name'],
         'size': btf['size'],
         'kind': btf['kind'],
-        'input': None
+        'input': None,
+        'treatAs': None
     }
     return ret
 
@@ -106,7 +107,8 @@ def flattenBTFArray(btf):
             #'variable_name': variable_name,
             'kind': btf['kind'],
             'input': [],
-            'member': member
+            'member': member,
+            'treatAs': None
         }
     return ret
 
@@ -228,6 +230,13 @@ def convertArrayType(array_obj):
         member = array_obj['member']
         # array input array
         input_array = array_obj['input']
+
+        if 'treatAs' in array_obj:
+            special_type = array_obj['treatAs']
+            if special_type == 'ip':
+                # The input must be a string and is to be treated as an ip
+                input = array_obj['input']
+                data = convertToType(input, str)
 
         members = []
         for i in input_array:
