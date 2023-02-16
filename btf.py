@@ -71,8 +71,7 @@ def flattenBTFBaseObject(btf):
         'type_name': btf['name'],
         'size': btf['size'],
         'kind': btf['kind'],
-        'input': None,
-        'treatAs': None
+        'input': None
     }
     return ret
 
@@ -102,13 +101,15 @@ def flattenBTFArray(btf):
     #FIXME: Array names are generally Anon and are found at root. Verify?
     #variable_name = btf['name']
     member = flattenBTF(subType)
-    #del member['input']
+    del member['input']
     ret = {
             #'variable_name': variable_name,
             'kind': btf['kind'],
             'input': [],
             'member': member,
-            'treatAs': None
+            #'treatAs': None,
+            'totalSize': None,
+            'fillWithZeros': True
         }
     return ret
 
@@ -194,7 +195,7 @@ def convertToType(val, type):
     except ValueError:
         return None
 
-def convertBaseType(flatten_obj, type):
+def convertBaseType(flatten_obj, type, byteOrder='reversed'):
     try:
         input = flatten_obj['input']
         if input is None: # special case for unions
@@ -212,7 +213,19 @@ def convertBaseType(flatten_obj, type):
                             variable_name+" to type "+kind)
         fmt = '!'+getPackFormatForTypeName(type_name)
         raw = pack(fmt, data)
-        log.info('Converted type '+kind+' input '+str(input)+' to '+raw.hex())
+        if byteOrder == 'reversed':
+            # The below code is doing an endianness swap over the bytes.
+            bytes_to_string = raw.hex()
+            i = 0
+            bytes_array = []
+            while i<len(bytes_to_string):
+                b = bytes_to_string[i:i+2]
+                bytes_array.append(b)
+                i+=2
+            reversed_array = bytes_array[::-1]
+            reversed_string = "".join(reversed_array)
+            raw = bytes.fromhex(reversed_string)
+        # log.info('Converted type '+kind+' input '+str(input)+' to '+raw.hex())
         #if len(raw) != size:
         #    raise Exception("Size of raw bytes "+
         #                    len(raw)+" is not equal to size "+size)
@@ -220,7 +233,7 @@ def convertBaseType(flatten_obj, type):
     except Exception as e:
         raise Exception(str(e))
 
-def convertArrayType(array_obj):
+def convertArrayType(array_obj, byteOrder='reversed'):
     try:
         if 'variable_name' in array_obj:
             variable_name = array_obj['variable_name']
@@ -231,12 +244,31 @@ def convertArrayType(array_obj):
         # array input array
         input_array = array_obj['input']
 
+        # Convert IP to int and see if reversal is needed
         if 'treatAs' in array_obj:
             special_type = array_obj['treatAs']
             if special_type == 'ip':
                 # The input must be a string and is to be treated as an ip
                 input = array_obj['input']
                 data = convertToType(input, str)
+                raise Exception('Not implemeneted yet')
+
+        totalSize = array_obj['totalSize']
+        if totalSize is not None:
+            # check if input array does not equals total size.
+            if len(input_array) != totalSize:
+                if 'fillWithZeros' in array_obj:
+                    fillWithZeros = array_obj['fillWithZeros']
+                    if fillWithZeros == True:
+                        new_input_array = []
+                        i = 0
+                        while i<len(input_array):
+                            new_input_array.append(input_array[i])
+                            i = i+1
+                        while i<totalSize:
+                            new_input_array.append(0)
+                            i = i+1
+                        input_array = new_input_array
 
         members = []
         for i in input_array:
@@ -246,7 +278,7 @@ def convertArrayType(array_obj):
 
         raw_members = []
         for member in members:
-            raw_val = generateRawValue(member)
+            raw_val = generateRawValue(member, byteOrder=byteOrder)
             if raw_val is None:
                 raise Exception('Member '+member['variable_name']+' doesnt contain input')
             raw_members.append(raw_val)
@@ -261,7 +293,7 @@ def convertArrayType(array_obj):
         print(str(e))
         raise Exception(str(e))
 
-def convertStructType(struct_obj):
+def convertStructType(struct_obj, byteOrder='reversed'):
     try:
         if 'variable_name' in struct_obj:
             variable_name = struct_obj['variable_name']
@@ -270,7 +302,7 @@ def convertStructType(struct_obj):
         members = struct_obj['member']
         raw_members = []
         for member in members:
-            raw_val = generateRawValue(member)
+            raw_val = generateRawValue(member, byteOrder=byteOrder)
             if raw_val is None:
                 raise Exception('Member '+member['variable_name']+' doesnt contain input')
             raw_members.append(raw_val)
@@ -288,7 +320,7 @@ def convertStructType(struct_obj):
 # The union conversion doesn't check max size of the union and hence the padding
 # needed for the union if one entry is smaller than the other one.
 # Need to fix this but will need API for btf size calculation before fixing this.
-def convertUnionType(union_obj):
+def convertUnionType(union_obj, byteOrder='reversed'):
     try:
         if 'variable_name' in union_obj:
             variable_name = union_obj['variable_name']
@@ -298,7 +330,7 @@ def convertUnionType(union_obj):
         raw_union = None
         for member in members:
             try: 
-                raw_val = generateRawValue(member)
+                raw_val = generateRawValue(member, byteOrder=byteOrder)
                 if raw_val is None:
                     continue
                 else:
@@ -314,19 +346,19 @@ def convertUnionType(union_obj):
         raise Exception(str(e))
 
 # Code to generate raw hex from flatten btf object
-def generateRawValue(flatten_obj):
+def generateRawValue(flatten_obj, byteOrder='reversed'):
     if flatten_obj is None:
         return None
     kind = flatten_obj['kind']
     if kind == 'INT' or kind == 'ENUM':
-       return convertBaseType(flatten_obj=flatten_obj, type=int)
+       return convertBaseType(flatten_obj=flatten_obj, type=int, byteOrder=byteOrder)
     elif kind == 'FLOAT':
-       return convertBaseType(flatten_obj=flatten_obj, type=float)
+       return convertBaseType(flatten_obj=flatten_obj, type=float, byteOrder=byteOrder)
     elif kind == 'STRUCT':
-        return convertStructType(struct_obj=flatten_obj)
+        return convertStructType(struct_obj=flatten_obj, byteOrder=byteOrder)
     elif kind == 'UNION':
-        return convertUnionType(union_obj=flatten_obj)
+        return convertUnionType(union_obj=flatten_obj, byteOrder=byteOrder)
     elif kind == 'ARRAY':
-        return convertArrayType(array_obj=flatten_obj) 
+        return convertArrayType(array_obj=flatten_obj, byteOrder=byteOrder) 
     else:
         raise Exception('Unknown kind '+kind)
